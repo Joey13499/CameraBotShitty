@@ -5,12 +5,17 @@
 package frc.robot;
 
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.ExampleCommand2;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.ExampleSubsystem2;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -20,7 +25,7 @@ import edu.wpi.first.wpilibj.XboxController;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-
+  private final ExampleSubsystem2 m_exampleSubsystem2 = new ExampleSubsystem2();
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final PS4Controller m_driverController =
       new PS4Controller(0);
@@ -28,13 +33,14 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     m_exampleSubsystem.setDefaultCommand(
-            new ExampleCommand(
-                m_exampleSubsystem, 
-                m_driverController
-                // m_driverController.getRawAxis(PS4Controller.Axis.kRightY.value),
-                // m_driverController.getRawAxis(PS4Controller.Axis.kRightX.value)
-            )
-        );
+      new ExampleCommand(
+        m_exampleSubsystem, 
+        m_driverController
+      )
+    );
+    m_exampleSubsystem2.setDefaultCommand(
+      new ExampleCommand2(m_exampleSubsystem2)
+    );
     // Configure the trigger bindings
     configureBindings();
   }
@@ -49,6 +55,9 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
+    new JoystickButton(m_driverController, 1).onTrue(
+      new InstantCommand(() -> m_exampleSubsystem2.setOffset())
+    );
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.

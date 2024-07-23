@@ -63,8 +63,9 @@ public class ExampleSubsystem extends SubsystemBase {
     double tv = tvEntry.getDouble(0.0);
     SmartDashboard.putNumber("targetsGot", tv);
     int numberOfTargets = (int) tv;
+    numberOfTargets = 0;
     if (numberOfTargets > 0){
-      diffDrive.arcadeDrive(10,0);
+      diffDrive.arcadeDrive(1,0);
     } else {
       diffDrive.arcadeDrive(x, y);
     }

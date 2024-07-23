@@ -16,4 +16,8 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+  public static class AimerConstants{
+    public static final int kMinAngle = -180;
+    public static final int kMaxAngle = 180;
+  }
 }
