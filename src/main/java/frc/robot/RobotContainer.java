@@ -55,9 +55,9 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    new JoystickButton(m_driverController, 1).onTrue(
-      new InstantCommand(() -> m_exampleSubsystem2.setOffset())
-    );
+    // new JoystickButton(m_driverController, 1).onTrue(
+    //   new InstantCommand(() -> m_exampleSubsystem2.setOffset())
+    // );
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
