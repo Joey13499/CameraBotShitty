@@ -4,14 +4,9 @@
 
 package frc.robot;
 
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableEntry;
-import edu.wpi.first.networktables.NetworkTableInstance;
+
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.subsystems.ExampleSubsystem;
-import edu.wpi.first.wpilibj2.command.RunCommand;
 
 
 /**
@@ -21,7 +16,6 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
  * project.
  */
 public class Robot extends TimedRobot {
-  private ExampleSubsystem m_ExampleSubsystem;
   private RobotContainer m_robotContainer;
 
   /**

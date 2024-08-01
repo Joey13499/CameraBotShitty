@@ -38,7 +38,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 // }
 
 import edu.wpi.first.wpilibj.PS4Controller;
-import frc.robot.subsystems.ExampleSubsystem;
 
 public class ExampleCommand extends Command {
     private final ExampleSubsystem m_subsystem;

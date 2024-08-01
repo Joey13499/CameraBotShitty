@@ -32,6 +32,7 @@ public class ExampleSubsystem2 extends SubsystemBase {
     private double perSecondDecayOn;
     private double direction;
     private boolean tracking;
+    private boolean blinding;
     private NetworkTableEntry txEntry;
     private NetworkTableEntry tvEntry;
     private NetworkTableEntry ledEntry;
@@ -50,6 +51,7 @@ public class ExampleSubsystem2 extends SubsystemBase {
         perSecondDecayOn = 0;
         direction = 0;
         tracking = true;
+        blinding = true;
         limelightTable = NetworkTableInstance.getDefault().getTable("limelight");
         txEntry = limelightTable.getEntry("tx");
         tvEntry = limelightTable.getEntry("tv");
@@ -57,6 +59,9 @@ public class ExampleSubsystem2 extends SubsystemBase {
         ledEntry.setNumber(0);
     }
     public void trackTarget(){
+        if (!blinding){
+            return;
+        }
         double x = aimer.getPosition().getValueAsDouble();
         double currentAngle = x * 360.0 + offset;
         SmartDashboard.putNumber("aimerAngle",currentAngle);
@@ -83,4 +88,8 @@ public class ExampleSubsystem2 extends SubsystemBase {
             }
         }
     }
+    public void switchMode(){
+        blinding = !blinding;
+    }
+    
 }

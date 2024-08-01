@@ -4,8 +4,6 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.ExampleSubsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 
 // /** An example command that uses an example subsystem. */
@@ -37,7 +35,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 
 // }
 
-import edu.wpi.first.wpilibj.PS4Controller;
 import frc.robot.subsystems.ExampleSubsystem2;
 
 public class ExampleCommand2 extends Command {
